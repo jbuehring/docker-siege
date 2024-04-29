@@ -19,7 +19,7 @@ spec:
       name: docker-siege
     spec:
       containers:
-      - image: jbuehring/docker-siege:4.1.6-r9
+      - image: jbuehring/docker-siege:latest
         imagePullPolicy: Always
         name: siege
       restartPolicy: Always
