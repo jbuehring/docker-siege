@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: docker-siege
+  name: docker-siege
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-siege
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: docker-siege
+      name: docker-siege
+    spec:
+      containers:
+      - image: jbuehring/docker-siege:latest
+        imagePullPolicy: Always
+        name: siege
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 10
